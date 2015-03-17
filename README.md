@@ -1,0 +1,3 @@
+#AddressBook Deployment Instructions##PrereqsFor running this app, you’ll need
+* XCode version 6.0 or higher
+* The iOS 8.2 SDK##Installing AddressBook*	Two options for accessing the AddressBook project:	* Download AddressBook as a zip file at ____	* Check out the AddressBook code from ______*	Once the code has been checked out from github, open the project in XCode. *	The app can now be built and installed
