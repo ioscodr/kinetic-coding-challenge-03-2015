@@ -14,10 +14,15 @@
 
 + (NSString *) firstLetterCaps:(NSString*)text {
     
-    NSString *capitalized = [[[text substringToIndex:1] uppercaseString] stringByAppendingString:[text substringFromIndex:1]];
+    if (text.length) {
     
-    NSLog(@"%@ uppercased is %@", text, capitalized);
-    return capitalized;
+        NSString *capitalized = [[[text substringToIndex:1] uppercaseString] stringByAppendingString:[text substringFromIndex:1]];
+        
+        NSLog(@"%@ uppercased is %@", text, capitalized);
+        return capitalized;
+    }
+    else
+        return text;
 }
 
 @end

@@ -14,6 +14,7 @@
 
 @interface AddressBookCommunicatorTests : XCTestCase {
     AddressBookCommunicator *communicator;
+
 }
 
 @end

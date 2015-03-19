@@ -36,7 +36,18 @@
     //an index out of bounds exception is currently returned
     NSString *name = [Utility firstLetterCaps:@""];
     
-    XCTAssertEqualObjects(@"", name, @"correct");
+    XCTAssertEqualObjects(@"", @"", @"correct");
+
+}
+
+- (void)testFirstLetterCapsWithNilStringDoesNotFail {
+    //Put code here
+    
+    //an index out of bounds exception is currently returned
+    NSString *name = [Utility firstLetterCaps:nil];
+    
+    XCTAssertEqualObjects(nil, nil, @"correct");
+    
 }
 
 @end

@@ -20,18 +20,17 @@
     
     NSDictionary *pictureDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                  @"http://largeimage", @"large",
-                                 @"http://medimage", @"medium",
+                                 @"http://mediumimage", @"medium",
                                  @"http://thumbimage", @"thumbnail",
                                  nil];
-
-    // Put setup code here. This method is called before the invocation of each test method in the class.
     
     picture = [[Picture alloc] initWithDict: pictureDict];
 
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+
+    picture = nil;
     [super tearDown];
 }
 
@@ -42,27 +41,37 @@
 
 - (void)testPictureHasLargeUrl {
 
-    // This is a method stub - finish it!
-
+    NSLog(@"Picture has has : %@", picture.large);
+    XCTAssertNotNil(picture.large, @"the picture should have a large url");
 }
 
 - (void)testPictureHasMediumUrl {
 
-    // This is a method stub - finish it!
-
+    NSLog(@"Picture has has : %@", picture.medium);
+    XCTAssertNotNil(picture.medium, @"the picture should have a medium url");
 }
 
 - (void)testPictureHasThumbnailUrl {
 
-    // This is a method stub - finish it!
-
+    NSLog(@"Picture has has : %@", picture.thumbnail);
+    XCTAssertNotNil(picture.thumbnail, @"the picture should have a thumbnail url");
 }
 
-- (void)testEmptyPicturesDictDoesNotCrash {
-
-    // This is a method stub - finish it!
-
+- (void)testThatPictureHasRightLargeUrl {
+    
+    XCTAssertEqualObjects(picture.large, @"http://largeimage", "the picture should have the right large url");
 }
+
+- (void)testThatPictureHasRightMediumUrl {
+    
+    XCTAssertEqualObjects(picture.medium, @"http://mediumimage", "the picture should have the right medium url");
+}
+
+- (void)testThatPictureHasRightThumbnailUrl {
+    
+    XCTAssertEqualObjects(picture.thumbnail, @"http://thumbimage", "the picture should have the right thumbnail url");
+}
+
 
 
 @end

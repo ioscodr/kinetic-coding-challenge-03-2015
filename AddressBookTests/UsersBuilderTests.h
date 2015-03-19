@@ -9,6 +9,7 @@
 @class UsersBuilder;
 
 @interface UsersBuilderTests : XCTestCase {
+    
     UsersBuilder *usersBuilder;
     NSArray *usersArray;
 }

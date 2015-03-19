@@ -12,23 +12,22 @@
 @implementation UsersBuilder
 
 
-+ (NSMutableArray *) usersFromJson: (NSData *) results {
++ (NSMutableArray *) usersFromJson: (NSData *) resultsData {
 
+    if (!resultsData)
+        return nil;
 
     NSMutableArray *users;
-    
     NSError *localError = nil;
-    
-    //NOTE: sometimes responseData is nil and this crashes
-    //Handle this!
     NSDictionary *parsedJsonDict = [NSJSONSerialization
-                                    JSONObjectWithData:results
+                                    JSONObjectWithData:resultsData
                                     options:0
                                     error:&localError];
     
     if (!parsedJsonDict) {
         
         NSLog(@"Error parsing JSON: %@", localError);
+        return nil;
         
     } else {
         
@@ -36,9 +35,12 @@
         users = [[NSMutableArray alloc] init];
         
         //get results of json feed
-        NSArray *results = [parsedJsonDict valueForKey:@"results"];
+        NSArray *resultsArray = [parsedJsonDict valueForKey:@"results"];
         
-        for (NSDictionary *resultDict in results) {
+        if (!resultsArray)
+            return nil;
+        
+        for (NSDictionary *resultDict in resultsArray) {
             
             //Get user data from results dictionary
             NSDictionary *userDict = [resultDict objectForKey:@"user"];

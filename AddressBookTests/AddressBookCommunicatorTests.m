@@ -10,6 +10,7 @@
 #import <XCTest/XCTest.h>
 
 #import "AddressBookCommunicatorTests.h"
+#import "AddressBookCommunicator.h"
 
 
 @implementation AddressBookCommunicatorTests
@@ -18,13 +19,33 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+
+    communicator = [[AddressBookCommunicator alloc] init];
+
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+
     [super tearDown];
 }
 
+- (void)testReceivingResponseWith404StatusPassesErrorToDelegate {
+
+    //This is a stub - implement this
+
+}
+
+
+- (void)testSuccessfulUsersFetchPassesDataToDelegate {
+
+    //This is a stub - implement this
+    
+}
+
+- (void)testConnectionFailingPassesErrorToDelegate {
+
+    //This is a stub - implement this
+
+}
 
 @end

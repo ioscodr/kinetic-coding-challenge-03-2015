@@ -16,7 +16,6 @@
 
 - (void)downloadUsers {
 
-    
     [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:kRandomUsersUrl] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         if (error) {

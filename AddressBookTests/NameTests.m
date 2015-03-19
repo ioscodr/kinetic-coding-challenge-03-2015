@@ -26,12 +26,11 @@
     
     name = [[Name alloc] initWithDict: nameDict];
 
-
-    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+
+    name = nil;
     [super tearDown];
 }
 
@@ -42,20 +41,36 @@
 
 - (void)testThatNameHasFirstName {
 
-    // This is a method stub - finish it!
-
+    NSLog(@"Name has first name: %@", name.first);
+    XCTAssertNotNil(name.first, @"the name should have a first name");
 }
 
 - (void)testThatNameHasLastName {
     
-    // This is a method stub - finish it!
-    
+    NSLog(@"Name has last name: %@", name.last);
+    XCTAssertNotNil(name.last, @"the name should have a last name");
 }
 
 - (void)testThatNameHasTitle {
     
-    // This is a method stub - finish it!
-    
+    NSLog(@"Name has title: %@", name.title);
+    XCTAssertNotNil(name.title, @"the name should have a title");
 }
+
+- (void)testThatNameHasRightFirstName {
+    
+    XCTAssertEqualObjects(name.first, @"Lynn", "the user should have the right first name");
+}
+
+- (void)testThatNameHasRightLastName {
+    
+    XCTAssertEqualObjects(name.last, @"Zhou", "the user should have the right last name");
+}
+
+- (void)testThatNameHasRightTitle {
+
+    XCTAssertEqualObjects(name.title, @"Ms", "the user should have the right title");
+}
+
 
 @end
