@@ -16,11 +16,10 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+
     [super tearDown];
 }
 
@@ -31,9 +30,9 @@
 }
 
 - (void)testFirstLetterCapsWithEmptyStringDoesNotFail {
-    //Put code here
 
-    //an index out of bounds exception is currently returned
+    //Test passes
+    
     NSString *name = [Utility firstLetterCaps:@""];
     
     XCTAssertEqualObjects(@"", @"", @"correct");
@@ -41,9 +40,9 @@
 }
 
 - (void)testFirstLetterCapsWithNilStringDoesNotFail {
-    //Put code here
+
+    //Test passes
     
-    //an index out of bounds exception is currently returned
     NSString *name = [Utility firstLetterCaps:nil];
     
     XCTAssertEqualObjects(nil, nil, @"correct");
