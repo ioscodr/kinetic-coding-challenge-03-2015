@@ -20,6 +20,9 @@
 
 @implementation MainViewController
 
+
+//View lifecycle methods
+
 - (void)awakeFromNib {
 
     [super awakeFromNib];
@@ -65,12 +68,16 @@
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        UserDetailViewController *controller = (UserDetailViewController *)[[segue destinationViewController] topViewController];
         
-        NSInteger row = [self.tableView indexPathForSelectedRow].row;
-        controller.user = [self.usersArray objectAtIndex:row];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSString *sectionTitle = [self.sectionTitles objectAtIndex:indexPath.section];
+        NSArray *sectionUsers = [self.usersDict objectForKey:sectionTitle];
+        User *user = [sectionUsers objectAtIndex:indexPath.row];
+
+        UserDetailViewController *controller = (UserDetailViewController *)[[segue destinationViewController] topViewController];
+        controller.user = user;
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
@@ -134,6 +141,8 @@
     
 }
 
+
+//Delegate methods
 - (void)fetchingUsersFailedWithError: (NSError *)error{
 
     [self.ai stopAnimating];
